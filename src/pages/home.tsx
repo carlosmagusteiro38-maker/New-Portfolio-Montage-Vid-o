@@ -39,6 +39,7 @@ const projects: Project[] = [
 const RED = "#db142b";
 
 export default function Home() {
+  const [tallyOpen, setTallyOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState<typeof portfolioTabs[number]>("ADS");
   const [videoModal, setVideoModal] = useState<{ open: boolean; url: string; title: string; aspect: "9:16" | "16:9" }>({ open: false, url: "", title: "", aspect: "9:16" });
@@ -72,11 +73,11 @@ export default function Home() {
             <button onClick={() => scrollTo("services")} className="text-white/70 hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">Services</button>
             <button onClick={() => scrollTo("about")} className="text-white/70 hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">À Propos</button>
             <button
-              onClick={() => scrollTo("projet")}
+              onClick={() => setTallyOpen(true)}
               className="text-white uppercase tracking-widest text-xs font-bold px-5 py-2.5 transition-colors"
               style={{ backgroundColor: RED }}
             >
-              Démarrer un projet
+              Parlons de votre projet
             </button>
           </div>
         </div>
@@ -105,8 +106,8 @@ export default function Home() {
               Je transforme <strong className="text-white font-bold">vos idées en histoires</strong> visuelles captivantes. Chaque projet est une occasion de créer quelque chose de <strong className="text-white font-bold">mémorable et authentique</strong>.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="flex items-center space-x-4">
-              <button onClick={() => scrollTo("projet")} className="text-white px-8 py-4 text-sm font-bold uppercase tracking-widest transition-opacity hover:opacity-90" style={{ backgroundColor: RED }}>
-                Démarrer un projet
+              <button onClick={() => setTallyOpen(true)} className="text-white px-8 py-4 text-sm font-bold uppercase tracking-widest transition-opacity hover:opacity-90" style={{ backgroundColor: RED }}>
+                Parlons de votre projet
               </button>
               <button onClick={() => scrollTo("portfolio")} className="border border-white/40 hover:border-white text-white font-semibold uppercase tracking-widest text-sm transition-all flex items-center px-8 py-4">
                 Voir le Portfolio <ArrowRight className="ml-2 h-4 w-4" />
@@ -306,12 +307,12 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <a href="https://tally.so/r/eqv8yl" target="_blank" rel="noopener noreferrer"
+            <button onClick={() => setTallyOpen(true)}
               className="inline-block text-white px-10 py-4 text-sm font-black uppercase tracking-widest transition-opacity hover:opacity-90"
               style={{ backgroundColor: RED }}
             >
-              Travaillons ensemble
-            </a>
+              Parlons de votre projet
+            </button>
           </motion.div>
         </div>
       </section>
@@ -338,6 +339,32 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Tally Modal */}
+      <AnimatePresence>
+        {tallyOpen && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setTallyOpen(false)}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-12"
+          >
+            <div className="absolute top-6 right-6 z-10">
+              <button onClick={() => setTallyOpen(false)} className="text-white/50 hover:text-white font-bold uppercase text-sm tracking-widest">
+                Fermer [X]
+              </button>
+            </div>
+            <div onClick={(e) => e.stopPropagation()} className="w-full max-w-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden" style={{ height: "80vh" }}>
+              <iframe
+                src="https://tally.so/embed/eqv8yl?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Parlons de votre projet"
+                allowFullScreen
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Video Modal */}
       <AnimatePresence>
