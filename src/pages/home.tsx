@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Play, ArrowRight, Instagram, Youtube, Twitter, Video, Palette, Sparkles, LayoutTemplate } from "lucide-react";
+import { Play, ArrowRight, Youtube } from "lucide-react";
 
 type Project = {
   id: number;
@@ -20,14 +20,17 @@ const projects: Project[] = [
   { id: 16, title: "JC Conticello — Vidéo Promotionnelle 9:16", tab: "ADS", tags: ["Editing", "Étalonnage", "Brand Creation"], image: "https://img.youtube.com/vi/UOaFdANIvdU/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/UOaFdANIvdU", videoAspect: "9:16" },
   { id: 3, title: "Papa In Shape — Short Publicitaire", tab: "ADS", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/q1MWD2geLJw/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/q1MWD2geLJw" },
   { id: 17, title: "Théo Rossi — Short Publicitaire", tab: "ADS", tags: ["Editing", "Étalonnage", "Sound Design"], image: "https://img.youtube.com/vi/nymo_88u6Lw/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/nymo_88u6Lw" },
+  { id: 20, title: "Learn Immobilier", tab: "ADS", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/GaRZW0G6D5M/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/GaRZW0G6D5M", videoAspect: "9:16" },
+  { id: 21, title: "Entrepreneurs.com — Alec Henry", tab: "ADS", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/1oBBriR4LD8/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/1oBBriR4LD8", videoAspect: "9:16" },
   { id: 4, title: "IA, Argent, Jalousie — Ça change la vie ?", tab: "Podcast", tags: ["Editing", "Sound Design", "Motion Design"], image: "/images/minia-lmor.jpg" },
-  { id: 5, title: "Interview — Entrepreneur Series", tab: "Podcast", tags: ["Editing", "Étalonnage", "Sound Design"], image: "/images/short.png" },
-  { id: 6, title: "Reel Lifestyle — Marque Mode", tab: "Reels", tags: ["Reels", "Motion Design", "Étalonnage"], image: "/images/social.png" },
-  { id: 7, title: "Reel Corporate — Présentation", tab: "Reels", tags: ["Editing", "Brand Creation", "Sound Design"], image: "/images/corp.png" },
+  { id: 22, title: "Le million ou rien — Intro", tab: "Podcast", tags: ["Editing", "Sound Design", "Motion Design"], image: "https://img.youtube.com/vi/DEDLIsVQWKI/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/DEDLIsVQWKI", videoAspect: "16:9" },
+  { id: 23, title: "Harry JMG", tab: "Podcast", tags: ["Editing", "Sound Design", "Motion Design"], image: "https://img.youtube.com/vi/OYTDta5hiiE/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/OYTDta5hiiE", videoAspect: "16:9" },
+  { id: 24, title: "Le million ou rien — Intro", tab: "Reels", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/sHKAEu8gSUs/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/sHKAEu8gSUs", videoAspect: "9:16" },
+  { id: 25, title: "Robin Duaut", tab: "Reels", tags: ["Editing", "Étalonnage", "Sound Design"], image: "https://img.youtube.com/vi/3fBfG8bZMag/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/3fBfG8bZMag", videoAspect: "9:16" },
+  { id: 9, title: "Développeur ! Pourquoi t'es au Chômage ?", tab: "Reels", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/RsuuzGuP53o/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/RsuuzGuP53o", videoAspect: "9:16" },
+  { id: 14, title: "Agence Personnelle — Bali", tab: "Reels", tags: ["Editing", "Étalonnage", "Sound Design"], image: "https://img.youtube.com/vi/5_d8d5K4Kt0/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/5_d8d5K4Kt0", videoAspect: "9:16" },
+  { id: 15, title: "Agence Personnelle — Pop Culture", tab: "Reels", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/rjAvPKrcRN4/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/rjAvPKrcRN4", videoAspect: "9:16" },
   { id: 8, title: "Accompagnement 20H de Formation LIVE", tab: "Miniatures", tags: ["Création Graphique", "Brand Creation"], image: "/images/minia-arthaud-immo.jpg" },
-  { id: 9, title: "Développeur ! Pourquoi t'es au Chômage ?", tab: "Reels", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/RsuuzGuP53o/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/RsuuzGuP53o" },
-  { id: 14, title: "Agence Personnelle — Bali", tab: "Reels", tags: ["Editing", "Étalonnage", "Sound Design"], image: "https://img.youtube.com/vi/5_d8d5K4Kt0/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/5_d8d5K4Kt0" },
-  { id: 15, title: "Agence Personnelle — Pop Culture", tab: "Reels", tags: ["Editing", "Motion Design", "Sound Design"], image: "https://img.youtube.com/vi/rjAvPKrcRN4/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/rjAvPKrcRN4" },
   { id: 10, title: "De 0 à 16 Biens — Cyrille & Lionel", tab: "Miniatures", tags: ["Création Graphique", "Brand Creation"], image: "/images/minia-learn-immo.jpg" },
   { id: 11, title: "De 10 à 100K€ — Comment Scaler son Entreprise", tab: "Miniatures", tags: ["Création Graphique", "Motion Design"], image: "/images/minia-alec-henry.jpg" },
   { id: 12, title: "Spécial Mercato — Liverpool FC", tab: "Miniatures", tags: ["Création Graphique", "Brand Creation"], image: "/images/minia-reds-mercato.png" },
@@ -60,23 +63,17 @@ export default function Home() {
 
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen" style={{ fontFamily: "'Poppins', sans-serif" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet" />
 
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5 py-4" : "bg-transparent py-6"}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="text-white font-bold text-xl tracking-tight">
-            Carlos <span className="font-black">Magusteiro</span>
-          </div>
+          <img src="/logo.svg" alt="Carlos Magusteiro" className="h-7 w-auto" />
           <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <button onClick={() => scrollTo("portfolio")} className="text-white/70 hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">Portfolio</button>
             <button onClick={() => scrollTo("services")} className="text-white/70 hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">Services</button>
             <button onClick={() => scrollTo("about")} className="text-white/70 hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold">À Propos</button>
-            <button
-              onClick={() => setTallyOpen(true)}
-              className="text-white uppercase tracking-widest text-xs font-bold px-5 py-2.5 transition-colors"
-              style={{ backgroundColor: RED }}
-            >
+            <button onClick={() => setTallyOpen(true)} className="text-white uppercase tracking-widest text-xs font-bold px-5 py-2.5 transition-opacity hover:opacity-90" style={{ backgroundColor: RED }}>
               Parlons de votre projet
             </button>
           </div>
@@ -86,8 +83,8 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.5) 100%)" }} />
-          <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center right" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 100%)" }} />
+          <div className="absolute inset-0 opacity-70" style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "70% center" }} />
         </div>
         <motion.div className="container relative z-30 mx-auto px-6 md:px-12" style={{ y: y1, opacity }}>
           <div className="max-w-3xl">
@@ -95,14 +92,16 @@ export default function Home() {
               <div className="h-[2px] w-10" style={{ backgroundColor: RED }} />
               <span className="uppercase tracking-widest text-xs font-bold" style={{ color: RED }}>Monteur Vidéo Freelance</span>
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-none mb-4">
-              <span className="block text-7xl md:text-8xl lg:text-9xl" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900 }}>DES VIDÉOS</span>
-              <span className="block text-7xl md:text-8xl lg:text-9xl" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 300 }}>QUI <span style={{ fontWeight: 700 }}>MARQUENT.</span></span>
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-4">
+              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900, fontSize: "clamp(60px, 10vw, 120px)" }}>DES VIDÉOS</span>
+              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(60px, 10vw, 120px)" }}>
+                <span style={{ fontWeight: 300 }}>QUI </span><span style={{ fontWeight: 700 }}>MARQUENT.</span>
+              </span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-2xl md:text-3xl text-white/80 mb-6" style={{ fontFamily: "Cambria, Georgia, serif", fontStyle: "italic" }}>
               Une histoire. Une émotion. Un impact.
             </motion.p>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed" style={{ fontWeight: 400 }}>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
               Je transforme <strong className="text-white font-bold">vos idées en histoires</strong> visuelles captivantes. Chaque projet est une occasion de créer quelque chose de <strong className="text-white font-bold">mémorable et authentique</strong>.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="flex items-center space-x-4">
@@ -126,15 +125,12 @@ export default function Home() {
       <section id="about" className="py-32 bg-[#0a0a0a]">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Image avec coins décoratifs */}
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="relative">
               <div className="relative">
-                {/* Coin haut gauche */}
                 <div className="absolute -top-3 -left-3 w-8 h-8 z-10">
                   <div className="absolute top-0 left-0 w-full h-[3px]" style={{ backgroundColor: RED }} />
                   <div className="absolute top-0 left-0 h-full w-[3px]" style={{ backgroundColor: RED }} />
                 </div>
-                {/* Coin bas droite */}
                 <div className="absolute -bottom-3 -right-3 w-8 h-8 z-10">
                   <div className="absolute bottom-0 right-0 w-full h-[3px]" style={{ backgroundColor: RED }} />
                   <div className="absolute bottom-0 right-0 h-full w-[3px]" style={{ backgroundColor: RED }} />
@@ -143,17 +139,16 @@ export default function Home() {
                 <div className="absolute inset-0 opacity-10 mix-blend-color" style={{ backgroundColor: RED }} />
               </div>
             </motion.div>
-
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontStyle: "italic" }}>
+              <h2 className="mb-6 leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontStyle: "italic", fontSize: "70px" }}>
                 Pourquoi moi ?
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-6">
                 Contrairement à un simple monteur vidéo, j'apporte <strong className="text-white">plus de 20 ans d'expérience en communication visuelle</strong>. Chaque vidéo est pensée non seulement pour être esthétique, mais aussi pour <strong className="text-white">transmettre efficacement votre message</strong>.
               </p>
               <div className="mb-10">
-                <p className="text-white font-bold mb-4">Comment se déroule un projet ?</p>
-                <ol className="space-y-2 text-white/70">
+                <p className="text-white font-bold text-xl mb-4">Comment se déroule un projet ?</p>
+                <ol className="space-y-2 text-white/70 text-lg">
                   {["Brief & objectifs", "Montage & validation", "Ajustements", "Livraison"].map((step, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <span className="font-bold" style={{ color: RED }}>{i + 1}.</span>
@@ -183,7 +178,7 @@ export default function Home() {
               <span className="uppercase tracking-widest text-sm font-bold" style={{ color: RED }}>Portfolio</span>
               <div className="h-[2px] w-16" style={{ backgroundColor: RED }} />
             </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight">Sélection de projets</h2>
+            <h2 className="leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontStyle: "italic", fontSize: "70px" }}>Sélection de projets</h2>
           </motion.div>
           <div className="flex flex-wrap gap-2 mb-12">
             {portfolioTabs.map((tab) => (
@@ -239,8 +234,9 @@ export default function Home() {
               <span className="uppercase tracking-widest text-sm font-bold" style={{ color: RED }}>Services</span>
               <div className="h-[2px] w-10" style={{ backgroundColor: RED }} />
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight" style={{ fontStyle: "italic" }}>
-              De l'idée au <span className="text-white/40 font-light not-italic" style={{ fontFamily: "Cambria, Georgia, serif" }}>rendu final</span>
+            <h2 className="mb-4 leading-tight">
+              <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontStyle: "italic", fontSize: "50px" }}>De l'idée au </span>
+              <span style={{ fontFamily: "Cambria, Georgia, serif", fontWeight: 700, fontStyle: "italic", fontSize: "56px", color: "#a0a0a0" }}>rendu final</span>
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
               Je maîtrise l'art de <strong className="text-white">raconter des histoires</strong> à travers l'image en mouvement.<br />
@@ -249,26 +245,24 @@ export default function Home() {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Video, title: "Montage vidéo", desc: "Transformez vos rushs en vidéos dynamiques qui captivent votre audience et renforcent votre message." },
-              { icon: Palette, title: "Correction colorimétrique", desc: "Des couleurs harmonisées et un rendu professionnel pour sublimer chaque image." },
-              { icon: Sparkles, title: "Motion Design & Effets", desc: "Animations, titrages et effets visuels pour dynamiser vos contenus et retenir l'attention." },
-              { icon: LayoutTemplate, title: "Création graphique", desc: "Miniatures YouTube, visuels réseaux sociaux et éléments graphiques conçus pour maximiser l'impact visuel." },
+              { icon: "/Picto_camera.svg", title: "Montage vidéo", desc: "Transformez vos rushs en vidéos dynamiques qui captivent votre audience et renforcent votre message." },
+              { icon: "/Picto_colo.svg", title: "Correction colorimétrique", desc: "Des couleurs harmonisées et un rendu professionnel pour sublimer chaque image." },
+              { icon: "/Picto_MOTION-blanc.svg", title: "Motion Design & Effets", desc: "Animations, titrages et effets visuels pour dynamiser vos contenus et retenir l'attention." },
+              { icon: "/Picto_Graphisme.svg", title: "Création graphique", desc: "Miniatures YouTube, visuels réseaux sociaux et éléments graphiques conçus pour maximiser l'impact visuel." },
             ].map((service, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative p-8 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 border border-white/5"
               >
-                {/* Coin haut gauche */}
                 <div className="absolute top-0 left-0 w-6 h-6">
                   <div className="absolute top-0 left-0 w-full h-[2px]" style={{ backgroundColor: RED }} />
                   <div className="absolute top-0 left-0 h-full w-[2px]" style={{ backgroundColor: RED }} />
                 </div>
-                {/* Coin bas droite */}
                 <div className="absolute bottom-0 right-0 w-6 h-6">
                   <div className="absolute bottom-0 right-0 w-full h-[2px]" style={{ backgroundColor: RED }} />
                   <div className="absolute bottom-0 right-0 h-full w-[2px]" style={{ backgroundColor: RED }} />
                 </div>
                 <div className="w-14 h-14 flex items-center justify-center mx-auto mb-6">
-                  <service.icon className="h-8 w-8 text-white" />
+                  <img src={service.icon} alt={service.title} className="h-10 w-10 object-contain" />
                 </div>
                 <h4 className="text-base font-bold text-white mb-3 text-center">{service.title}</h4>
                 <p className="text-sm text-white/50 leading-relaxed text-center">{service.desc}</p>
@@ -289,21 +283,26 @@ export default function Home() {
               <span className="uppercase tracking-widest text-sm font-bold" style={{ color: RED }}>Projet</span>
               <div className="h-[2px] w-10" style={{ backgroundColor: RED }} />
             </div>
-            <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight" style={{ fontStyle: "italic" }}>
-              Prêt à donner vie<br />
-              <span className="font-light not-italic" style={{ fontFamily: "Cambria, Georgia, serif" }}>à votre projet ?</span>
+            <h2 className="mb-6 leading-tight">
+              <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontStyle: "italic", fontSize: "50px", display: "block" }}>Prêt à donner vie</span>
+              <span style={{ fontFamily: "Cambria, Georgia, serif", fontWeight: 700, fontStyle: "italic", fontSize: "56px", color: "#a0a0a0", display: "block", marginTop: "-8px" }}>à votre projet ?</span>
             </h2>
             <p className="text-lg text-white/60 mb-4 leading-relaxed">
               Parlons de <strong className="text-white">vos besoins</strong> et trouvons ensemble la meilleure approche pour <strong className="text-white">créer une vidéo qui atteint vos objectifs</strong>.
             </p>
-            <p className="text-white font-bold mb-8">
-              Cliquer sur le bouton ci-dessous,<br />remplissez le formulaire et vous obtenez :
+            <p className="text-white font-bold mb-8 whitespace-nowrap">
+              Cliquer sur le bouton ci-dessous, remplissez le formulaire et vous obtenez :
             </p>
-            <div className="grid grid-cols-2 gap-4 mb-10 max-w-lg mx-auto text-sm text-white/70">
-              {["Réponse sous 24h", "Devis gratuit et sans engagement", "Accompagnement personnalisé", "Collaboration à distance partout en France"].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <span className="font-bold text-base" style={{ color: RED }}>✓</span>
-                  {item}
+            <div className="grid grid-cols-2 gap-y-3 gap-x-8 mb-10 max-w-xl mx-auto text-sm text-white/70">
+              {[
+                "Réponse sous 24h",
+                "Devis gratuit et sans engagement",
+                "Accompagnement personnalisé",
+                "Collaboration à distance partout en France"
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 whitespace-nowrap">
+                  <span className="font-bold text-base flex-shrink-0" style={{ color: RED }}>✓</span>
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
@@ -319,19 +318,18 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-8 bg-[#020202] border-t border-white/5">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
-          <div className="font-black text-white text-lg mb-4 md:mb-0">
-            Carlos <span className="font-black">Magusteiro</span>
-          </div>
-          <div className="flex items-center space-x-4 mb-4 md:mb-0">
-            <a href="#" className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#db142b] hover:text-[#db142b] transition-all">
-              <Instagram className="h-4 w-4" />
-            </a>
-            <a href="#" className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#db142b] hover:text-[#db142b] transition-all">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+          <a href="https://www.youtube.com/@carlosmagusteiro9187" target="_blank" rel="noopener noreferrer">
+            <img src="/logo.svg" alt="Carlos Magusteiro" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+          </a>
+          <div className="flex items-center space-x-4">
+            <a href="https://www.youtube.com/@carlosmagusteiro9187" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#db142b] hover:text-[#db142b] transition-all">
               <Youtube className="h-4 w-4" />
             </a>
-            <a href="#" className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#db142b] hover:text-[#db142b] transition-all">
-              <Twitter className="h-4 w-4" />
+            <a href="https://wa.me/33682256074" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-white/20 flex items-center justify-center text-white hover:border-[#db142b] hover:text-[#db142b] transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
             </a>
           </div>
           <div className="text-xs font-semibold uppercase tracking-widest text-white/30">
@@ -352,7 +350,7 @@ export default function Home() {
                 Fermer [X]
               </button>
             </div>
-            <div onClick={(e) => e.stopPropagation()} className="w-full max-w-2xl bg-[#0a0a0a] border border-white/10 overflow-hidden" style={{ height: "80vh" }}>
+            <div onClick={(e) => e.stopPropagation()} className="w-full max-w-3xl bg-[#0a0a0a] border border-white/10 overflow-auto" style={{ height: "85vh", maxHeight: "800px" }}>
               <iframe
                 src="https://tally.so/embed/eqv8yl?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
                 width="100%"
