@@ -16,7 +16,7 @@ const portfolioTabs = ["ADS", "Podcast", "Reels", "Miniatures"] as const;
 
 const projects: Project[] = [
   { id: 1, title: "Arthaud Immobilier - Carolin ARTHAUD", tab: "ADS", image: "https://img.youtube.com/vi/gEuay8qXhAU/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/gEuay8qXhAU" },
-  { id: 2, title: "GIANTS - Jean-Christophe CONTICELLO - 16:9", tab: "ADS", image: "https://img.youtube.com/vi/_hG2OLc6F_Y/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/1OrTTVlXfNg", videoAspect: "16:9" },
+  { id: 2, title: "GIANTS - Jean-Christophe CONTICELLO - 16:9", tab: "ADS", image: "https://img.youtube.com/vi/1OrTTVlXfNg/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/1OrTTVlXfNg", videoAspect: "16:9" },
   { id: 16, title: "GIANTS - Jean-Christophe CONTICELLO - 9:16", tab: "ADS", image: "https://img.youtube.com/vi/UOaFdANIvdU/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/UOaFdANIvdU", videoAspect: "9:16" },
   { id: 3, title: "Papa In Shape - Pierre BOUIN", tab: "ADS", image: "https://img.youtube.com/vi/q1MWD2geLJw/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/q1MWD2geLJw" },
   { id: 17, title: "Le Copywriter - Théo ROSSI", tab: "ADS", image: "https://img.youtube.com/vi/nymo_88u6Lw/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/nymo_88u6Lw" },
