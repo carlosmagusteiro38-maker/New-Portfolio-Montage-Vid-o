@@ -93,9 +93,9 @@ export default function Home() {
               <span className="uppercase tracking-widest text-xs font-bold" style={{ color: RED }}>Monteur Vidéo Freelance</span>
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-4">
-              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: "clamp(50px, 8vw, 100px)" }}>DES VIDÉOS</span>
+              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900, fontSize: "clamp(50px, 8vw, 120px)" }}>DES VIDÉOS</span>
               <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(50px, 8vw, 60px)" }}>
-                <span style={{ fontWeight: 200 }}>QUI </span><span style={{ fontWeight: 600 }}>MARQUENT.</span>
+                <span style={{ fontWeight: 300 }}>QUI </span><span style={{ fontWeight: 700 }}>MARQUENT.</span>
               </span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-2xl md:text-3xl text-white/80 mb-6" style={{ fontFamily: "Cambria, Georgia, serif", fontStyle: "italic" }}>
