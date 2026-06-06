@@ -209,11 +209,6 @@ export default function Home() {
                   <div className="px-1">
                     <p className="font-bold text-xs uppercase tracking-widest mb-1" style={{ color: RED }}>{project.tab}</p>
                     <h3 className="text-lg font-bold text-white mb-3 leading-snug group-hover:opacity-80 transition-opacity">{project.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 border border-white/15 text-white/50 text-[10px] font-semibold uppercase tracking-wider">{tag}</span>
-                      ))}
-                    </div>
                   </div>
                 </motion.div>
               ))}
