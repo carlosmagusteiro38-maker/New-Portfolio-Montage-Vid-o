@@ -84,7 +84,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, rgba(10,10,10,0.95) 35%, rgba(10,10,10,0.4) 100%)" }} />
-          <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "50% center" }} />
+          <div className="absolute inset-0 opacity-60" style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "30% center" }} />
         </div>
         <motion.div className="container relative z-30 mx-auto px-6 md:px-12" style={{ y: y1, opacity }}>
           <div className="max-w-3xl">
@@ -94,8 +94,8 @@ export default function Home() {
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-4">
               <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900, fontSize: "clamp(60px, 10vw, 120px)" }}>DES VIDÉOS</span>
-              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(50px, 8vw, 100px)" }}>
-                <span style={{ fontWeight: 300 }}>QUI </span><span style={{ fontWeight: 700 }}>MARQUENT.</span>
+              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(50px, 8vw, 200px)" }}>
+                <span style={{ fontWeight: 250 }}>QUI </span><span style={{ fontWeight: 650 }}>MARQUENT.</span>
               </span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-2xl md:text-3xl text-white/80 mb-6" style={{ fontFamily: "Cambria, Georgia, serif", fontStyle: "italic" }}>
