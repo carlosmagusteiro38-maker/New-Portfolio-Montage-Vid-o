@@ -94,7 +94,7 @@ export default function Home() {
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-4">
               <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900, fontSize: "clamp(50px, 8vw, 120px)" }}>DES VIDÉOS</span>
-              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(50px, 8vw, 60px)" }}>
+              <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(50px, 8vw, 90px)" }}>
                 <span style={{ fontWeight: 300 }}>QUI </span><span style={{ fontWeight: 700 }}>MARQUENT.</span>
               </span>
             </motion.h1>
