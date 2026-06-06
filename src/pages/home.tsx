@@ -344,7 +344,7 @@ export default function Home() {
                 Fermer [X]
               </button>
             </div>
-            <div onClick={(e) => e.stopPropagation()} className="w-full max-w-3xl bg-[#0a0a0a] border border-white/10 overflow-auto" style={{ height: "85vh", maxHeight: "800px" }}>
+            <div onClick={(e) => e.stopPropagation()} className="w-full max-w-5xl bg-[#0a0a0a] border border-white/10 overflow-auto" style={{ height: "85vh", maxHeight: "800px" }}>
               <iframe
                 src="https://tally.so/embed/eqv8yl?alignLeft=1&hideTitle=0&transparentBackground=1&dynamicHeight=1"
                 width="100%"
