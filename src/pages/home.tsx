@@ -88,11 +88,11 @@ export default function Home() {
         </div>
         <motion.div className="container relative z-30 mx-auto px-6 md:px-12" style={{ y: y1, opacity }}>
           <div className="max-w-3xl">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center space-x-4 mb-6">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex items-center space-x-4 mb-10">
               <div className="h-[2px] w-10" style={{ backgroundColor: RED }} />
               <span className="uppercase tracking-widest text-xs font-bold" style={{ color: RED }}>Monteur Vidéo Freelance</span>
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-4">
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="leading-[0.9] mb-8">
               <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 900, fontSize: "clamp(80px, 8vw, 120px)" }}>DES VIDÉOS</span>
               <span className="block" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(80px, 8vw, 90px)" }}>
                 <span style={{ fontWeight: 300 }}>QUI </span><span style={{ fontWeight: 700 }}>MARQUENT.</span>
@@ -101,7 +101,7 @@ export default function Home() {
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-2xl md:text-3xl text-white/80 mb-6" style={{ fontFamily: "Cambria, Georgia, serif", fontStyle: "italic" }}>
               Une histoire. Une émotion. Un impact.
             </motion.p>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-lg text-white/60 max-w-xl mb-16 leading-relaxed">
               Je transforme <strong className="text-white font-bold">vos idées en histoires</strong> visuelles captivantes. Chaque projet est une occasion de créer quelque chose de <strong className="text-white font-bold">mémorable et authentique</strong>.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="flex items-center space-x-4">
