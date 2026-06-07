@@ -26,7 +26,7 @@ const projects: Project[] = [
   { id: 23, title: "Harry JMG", tab: "Podcast", image: "https://img.youtube.com/vi/OYTDta5hiiE/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/OYTDta5hiiE", videoAspect: "16:9" },
   { id: 24, title: "Le million ou rien — Intro", tab: "Reels", image: "https://img.youtube.com/vi/sHKAEu8gSUs/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/sHKAEu8gSUs", videoAspect: "9:16" },
   { id: 25, title: "Robin Duaut", tab: "Reels", image: "https://img.youtube.com/vi/3fBfG8bZMag/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/3fBfG8bZMag", videoAspect: "9:16" },
-  { id: 9, title: "Harry JMG - Développeur ! Pourquoi t'es au Chômage ?", tab: "Reels", image: "https://img.youtube.com/vi/RsuuzGuP53o/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/RsuuzGuP53o", videoAspect: "9:16" },
+  { id: 9, title: "Harry JMG - Trouver votre mentor !", tab: "Reels", image: "https://img.youtube.com/vi/RsuuzGuP53o/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/RsuuzGuP53o", videoAspect: "9:16" },
   { id: 14, title: "Agence Personnelle — Bali", tab: "Reels", image: "https://img.youtube.com/vi/5_d8d5K4Kt0/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/5_d8d5K4Kt0", videoAspect: "9:16" },
   { id: 15, title: "Agence Personnelle — Pop Culture", tab: "Reels", image: "https://img.youtube.com/vi/rjAvPKrcRN4/hqdefault.jpg", videoUrl: "https://www.youtube.com/embed/rjAvPKrcRN4", videoAspect: "9:16" },
   { id: 8, title: "Arthaud Immobilier - Accompagnement 20H de Formation LIVE", tab: "Miniatures", image: "/images/minia-arthaud-immo.jpg" },
