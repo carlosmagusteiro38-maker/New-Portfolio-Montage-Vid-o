@@ -134,9 +134,8 @@ export default function Home() {
                   <div className="absolute bottom-0 right-0 w-full h-[3px]" style={{ backgroundColor: RED }} />
                   <div className="absolute bottom-0 right-0 h-full w-[3px]" style={{ backgroundColor: RED }} />
                 </div>
-                <img src="/about-photo.png" alt="Carlos Magusteiro" className="w-full object-cover filter grayscale contrast-110" />
-                <div className="absolute inset-0 opacity-10 mix-blend-color" style={{ backgroundColor: RED }} />
-              </div>
+                <img src="/about-photo.png" alt="Carlos Magusteiro" className="w-full object-cover" />
+                </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <h2 className="mb-6 leading-tight" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontStyle: "italic", fontSize: "70px" }}>
