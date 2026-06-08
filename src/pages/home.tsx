@@ -82,7 +82,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, rgba(10,10,10,1) 40%, rgba(10,10,10,0.4) 100%)" }} />
+          <div className="absolute inset-0 z-10" style={{ background: "linear-gradient(to right, rgba(10,10,10,1) 40%, rgba(10,10,10,0.8) 100%)" }} />
           <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "url('/hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "30% center" }} />
         </div>
         <motion.div className="container relative z-30 mx-auto px-6 md:px-12" style={{ y: y1, opacity }}>
