@@ -34,6 +34,7 @@ const projects: Project[] = [
   { id: 11, title: "Entrepreneurs.com - De 10 à 100K€ — Comment Scaler son Entreprise", tab: "Miniatures", image: "/images/minia-alec-henry.jpg" },
   { id: 12, title: "Reds League - Spécial Mercato", tab: "Miniatures", image: "/images/minia-reds-mercato.png" },
   { id: 13, title: "eds League - Slot Out, Enfin !", tab: "Miniatures", image: "/images/minia-reds-slot.png" },
+  { id: 14, title: "Reds League - Qui rendra fier l'Afrique ?", tab: "Miniatures", image: "/images/Minia-Afrique-CDM2026.png" },
   { id: 18, title: "Harry JMG - Développeur ! Pourquoi t'es au Chômage ?", tab: "Miniatures", image: "/images/minia-harry-jmg.jpg" },
   { id: 19, title: "LMOR - IA, Argent, Jalousie — Ça change la vie ?", tab: "Miniatures", image: "/images/minia-lmor.jpg" },
 ];
